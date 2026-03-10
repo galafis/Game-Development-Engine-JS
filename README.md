@@ -1,115 +1,104 @@
-# 🚀 Game Development Engine Js
+# Game Development Engine JS
 
-> Professional repository showcasing advanced development skills
+2D game development engine built with JavaScript and HTML5 Canvas, featuring a physics engine with collision detection, sprite management, scene system, input handling, and a fixed-timestep game loop.
 
-[![JavaScript](https://img.shields.io/badge/JavaScript-ES2024-F7DF1E.svg)](https://img.shields.io/badge/)
-[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-
-[English](#english) | [Português](#português)
+[English](#english) | [Portugues](#portugues)
 
 ---
 
 ## English
 
-### 🎯 Overview
+### Overview
 
-**Game Development Engine Js** is a production-grade JavaScript application that showcases modern software engineering practices including clean architecture, comprehensive testing, containerized deployment, and CI/CD readiness.
+A lightweight 2D game engine that provides the core systems needed for browser-based game development. Includes a physics engine with gravity, collision detection and resolution, a sprite system with animation support, scene management, keyboard and mouse input handling, and an FPS-capped game loop.
 
-The codebase comprises **198 lines** of source code organized across **1 modules**, following industry best practices for maintainability, scalability, and code quality.
-
-### ✨ Key Features
-
-- **📐 Clean Architecture**: Modular design with clear separation of concerns
-- **🧪 Test Coverage**: Unit and integration tests for reliability
-- **📚 Documentation**: Comprehensive inline documentation and examples
-- **🔧 Configuration**: Environment-based configuration management
-
-### 🏗️ Architecture
+### Architecture
 
 ```mermaid
 graph TB
-    subgraph Core["🏗️ Core"]
-        A[Main Module]
-        B[Business Logic]
-        C[Data Processing]
+    subgraph Engine Core
+        A[GameEngine] --> B[Game Loop]
+        B --> C[Update]
+        B --> D[Render]
     end
-    
-    subgraph Support["🔧 Support"]
-        D[Configuration]
-        E[Utilities]
-        F[Tests]
+
+    subgraph Physics
+        E[PhysicsEngine] --> F[Gravity]
+        E --> G[Collision Detection]
+        E --> H[Collision Resolution]
+        E --> I[PhysicsBody]
     end
-    
-    A --> B --> C
-    D --> A
-    E --> B
-    F -.-> B
-    
-    style Core fill:#e1f5fe
-    style Support fill:#f3e5f5
+
+    subgraph Rendering
+        J[Scene Manager] --> K[Sprite]
+        K --> L[Animation System]
+        D --> J
+    end
+
+    subgraph Input
+        M[InputManager] --> N[Keyboard]
+        M --> O[Mouse]
+    end
+
+    subgraph Math
+        P[Vector2D]
+    end
+
+    C --> E
+    C --> J
+    I --> P
+    K --> I
+
+    style Engine Core fill:#e1f5fe
+    style Physics fill:#fce4ec
+    style Rendering fill:#e8f5e9
+    style Input fill:#fff3e0
+    style Math fill:#f3e5f5
 ```
 
-### 🚀 Quick Start
+### Features
 
-#### Prerequisites
+- Vector2D math library with operations (add, subtract, scale, normalize, dot product, distance)
+- Physics engine with configurable gravity, mass, friction, and restitution
+- AABB collision detection and resolution with impulse-based response
+- Sprite rendering with animation frame support
+- Scene management for organizing game objects
+- Keyboard and mouse input tracking
+- Fixed-timestep game loop with FPS counter
+- Static and dynamic physics bodies
 
-- Node.js 20+
-- npm or yarn
-
-#### Installation
+### Quick Start
 
 ```bash
-# Clone the repository
 git clone https://github.com/galafis/Game-Development-Engine-JS.git
 cd Game-Development-Engine-JS
-
-# Install dependencies
 npm install
-```
-
-#### Running
-
-```bash
-# Development mode
-npm run dev
-
-# Production build
-npm run build
 npm start
 ```
 
-### 📁 Project Structure
+### Project Structure
 
 ```
 Game-Development-Engine-JS/
-├── tests/         # Test suite
-│   └── main.test.js
-├── LICENSE
-├── README.md
-└── main.js
+├── main.js            # Engine core with all systems
+├── tests/
+│   └── main.test.js   # Test suite
+├── package.json
+└── README.md
 ```
 
-### 🛠️ Tech Stack
+### Tech Stack
 
-| Technology | Description | Role |
-|------------|-------------|------|
-| **JavaScript** | Core Language | Primary |
+| Technology | Purpose |
+|------------|---------|
+| JavaScript ES2024 | Engine implementation |
+| HTML5 Canvas | 2D rendering |
 
-### 🤝 Contributing
+### License
 
-Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
+MIT License - see [LICENSE](LICENSE) for details.
 
-1. Fork the project
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-### 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-### 👤 Author
+### Author
 
 **Gabriel Demetrios Lafis**
 - GitHub: [@galafis](https://github.com/galafis)
@@ -117,101 +106,76 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-## Português
+## Portugues
 
-### 🎯 Visão Geral
+### Visao Geral
 
-**Game Development Engine Js** é uma aplicação JavaScript de nível profissional que demonstra práticas modernas de engenharia de software, incluindo arquitetura limpa, testes abrangentes, implantação containerizada e prontidão para CI/CD.
+Um motor de jogos 2D leve que fornece os sistemas centrais necessarios para desenvolvimento de jogos baseados em navegador. Inclui motor de fisica com gravidade, deteccao e resolucao de colisoes, sistema de sprites com suporte a animacao, gerenciamento de cenas, tratamento de entrada por teclado e mouse, e loop de jogo com FPS limitado.
 
-A base de código compreende **198 linhas** de código-fonte organizadas em **1 módulos**, seguindo as melhores práticas do setor para manutenibilidade, escalabilidade e qualidade de código.
-
-### ✨ Funcionalidades Principais
-
-- **📐 Clean Architecture**: Modular design with clear separation of concerns
-- **🧪 Test Coverage**: Unit and integration tests for reliability
-- **📚 Documentation**: Comprehensive inline documentation and examples
-- **🔧 Configuration**: Environment-based configuration management
-
-### 🏗️ Arquitetura
+### Arquitetura
 
 ```mermaid
 graph TB
-    subgraph Core["🏗️ Core"]
-        A[Main Module]
-        B[Business Logic]
-        C[Data Processing]
+    subgraph Nucleo do Motor
+        A[GameEngine] --> B[Loop do Jogo]
+        B --> C[Atualizacao]
+        B --> D[Renderizacao]
     end
-    
-    subgraph Support["🔧 Support"]
-        D[Configuration]
-        E[Utilities]
-        F[Tests]
+
+    subgraph Fisica
+        E[Motor de Fisica] --> F[Gravidade]
+        E --> G[Deteccao de Colisao]
+        E --> H[Resolucao de Colisao]
+        E --> I[Corpo Fisico]
     end
-    
-    A --> B --> C
-    D --> A
-    E --> B
-    F -.-> B
-    
-    style Core fill:#e1f5fe
-    style Support fill:#f3e5f5
+
+    subgraph Renderizacao
+        J[Gerenciador de Cenas] --> K[Sprite]
+        K --> L[Sistema de Animacao]
+        D --> J
+    end
+
+    subgraph Entrada
+        M[Gerenciador de Entrada] --> N[Teclado]
+        M --> O[Mouse]
+    end
+
+    C --> E
+    C --> J
+    I --> P[Vector2D]
+    K --> I
+
+    style Nucleo do Motor fill:#e1f5fe
+    style Fisica fill:#fce4ec
+    style Renderizacao fill:#e8f5e9
+    style Entrada fill:#fff3e0
 ```
 
-### 🚀 Início Rápido
+### Funcionalidades
 
-#### Prerequisites
+- Biblioteca matematica Vector2D com operacoes (adicao, subtracao, escala, normalizacao, produto escalar, distancia)
+- Motor de fisica com gravidade, massa, atrito e restituicao configuraveis
+- Deteccao de colisao AABB e resolucao com resposta baseada em impulso
+- Renderizacao de sprites com suporte a quadros de animacao
+- Gerenciamento de cenas para organizar objetos do jogo
+- Rastreamento de entrada por teclado e mouse
+- Loop de jogo com timestep fixo e contador de FPS
+- Corpos fisicos estaticos e dinamicos
 
-- Node.js 20+
-- npm or yarn
-
-#### Installation
+### Inicio Rapido
 
 ```bash
-# Clone the repository
 git clone https://github.com/galafis/Game-Development-Engine-JS.git
 cd Game-Development-Engine-JS
-
-# Install dependencies
 npm install
-```
-
-#### Running
-
-```bash
-# Development mode
-npm run dev
-
-# Production build
-npm run build
 npm start
 ```
 
-### 📁 Estrutura do Projeto
+### Licenca
 
-```
-Game-Development-Engine-JS/
-├── tests/         # Test suite
-│   └── main.test.js
-├── LICENSE
-├── README.md
-└── main.js
-```
+Licenca MIT - veja [LICENSE](LICENSE) para detalhes.
 
-### 🛠️ Stack Tecnológica
-
-| Tecnologia | Descrição | Papel |
-|------------|-----------|-------|
-| **JavaScript** | Core Language | Primary |
-
-### 🤝 Contribuindo
-
-Contribuições são bem-vindas! Sinta-se à vontade para enviar um Pull Request.
-
-### 📄 Licença
-
-Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para detalhes.
-
-### 👤 Autor
+### Autor
 
 **Gabriel Demetrios Lafis**
 - GitHub: [@galafis](https://github.com/galafis)
