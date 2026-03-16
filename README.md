@@ -1,5 +1,14 @@
 # Game Development Engine JS
 
+<div align="center">
+
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![License-MIT](https://img.shields.io/badge/License--MIT-yellow?style=for-the-badge)
+
+</div>
+
+
 2D game development engine built with JavaScript and HTML5 Canvas, featuring a physics engine with collision detection, sprite management, scene system, input handling, and a fixed-timestep game loop.
 
 [English](#english) | [Portugues](#portugues)
